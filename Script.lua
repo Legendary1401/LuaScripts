@@ -34,7 +34,7 @@ Copy.Parent = game.Workspace.efsane14010.HumanoidRootPart
 Copy.HumanoidRootPart.CanCollide = false
 Copy.Torso.CanCollide = false
 --Copy.Animate:Destroy()
-Copy.Humanoid:Destroy()
+--Copy.Humanoid:Destroy()
 --CanCollide
 Copy["Right Leg"].CanCollide = false
 Copy["Left Leg"].CanCollide = false
