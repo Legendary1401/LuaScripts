@@ -68,5 +68,5 @@ Copy.Head.BillboardGui:Destroy()
 Copy.Torso.Position = Copy.Torso.Position + Vector3.new(0,1,5)
 
 -------------------WALKİNG-ANIMATION----------------
-local WalkingAnimation = "rbxassetid://3716468774"
+local WalkingAnimation = "http://www.roblox.com/asset/?id=14449295313"
 Copy.Animate.run.AnimationId = WalkingAnimation
