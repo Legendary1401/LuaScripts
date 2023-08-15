@@ -33,7 +33,8 @@ Copy.Name = "efsane"
 Copy.Parent = game.Workspace.efsane14010.HumanoidRootPart
 Copy.HumanoidRootPart.CanCollide = false
 Copy.Torso.CanCollide = false
-Copy.Animate:Destroy()
+--Copy.Animate:Destroy()
+Copy.Humanoid:Destroy()
 --CanCollide
 Copy["Right Leg"].CanCollide = false
 Copy["Left Leg"].CanCollide = false
@@ -64,4 +65,8 @@ wait(3)
 Copy.Torso.Anchored = false
 Copy.Head.BillboardGui:Destroy()
 --POSITION
-Copy.Torso.Position = Copy.Torso.Position + Vector3.new(1,1,4)
+Copy.Torso.Position = Copy.Torso.Position + Vector3.new(0,1,5)
+
+-------------------WALKİNG-ANIMATION----------------
+local WalkingAnimation = "rbxassetid://3716468774"
+Copy.Animate.run.AnimationId = WalkingAnimation
