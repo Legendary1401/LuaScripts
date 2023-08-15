@@ -64,4 +64,4 @@ wait(3)
 Copy.Torso.Anchored = false
 Copy.Head.BillboardGui:Destroy()
 --POSITION
-Copy.Torso.Position = Copy.Torso.Position + Vector3.new(0,1,2)
+Copy.Torso.Position = Copy.Torso.Position + Vector3.new(1,1,4)
