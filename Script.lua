@@ -40,7 +40,7 @@ Copy["Left Leg"].CanCollide = false
 Copy["Right Arm"].CanCollide = false
 Copy["Left Arm"].CanCollide = false
 Copy.Torso.CanCollide = false
-Copy.HumanoidRootPart:Destroy()
+Copy.HumanoidRootPart.CanCollide = false
 Copy.Head.CanCollide = false
 --Massless
 Copy["Right Leg"].Massless = true
