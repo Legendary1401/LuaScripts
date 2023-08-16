@@ -33,15 +33,14 @@ Copy.Name = "efsane"
 Copy.Parent = game.Workspace.efsane14010.HumanoidRootPart
 Copy.HumanoidRootPart.CanCollide = false
 Copy.Torso.CanCollide = false
---Copy.Animate:Destroy()
---Copy.Humanoid:Destroy()
+
 --CanCollide
 Copy["Right Leg"].CanCollide = false
 Copy["Left Leg"].CanCollide = false
 Copy["Right Arm"].CanCollide = false
 Copy["Left Arm"].CanCollide = false
 Copy.Torso.CanCollide = false
-Copy.HumanoidRootPart.CanCollide = false
+Copy.HumanoidRootPart.CanCollide:Destroy()
 Copy.Head.CanCollide = false
 --Massless
 Copy["Right Leg"].Massless = true
