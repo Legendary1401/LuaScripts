@@ -51,12 +51,6 @@ Copy["Left Arm"].Massless = true
 Copy.Torso.Massless = true
 Copy.HumanoidRootPart.Massless = true
 Copy.Head.Massless = true
---Name
- 
-Copy["Right Leg"].Name = "RightLeg"
-Copy["Left Leg"].Name = "LeftLeg"
-Copy["Right Arm"].Name = "RigthArm"
-Copy["Left Arm"].Name = "LeftArm"
 
 wait(1)
 Copy.Torso.Anchored = true
