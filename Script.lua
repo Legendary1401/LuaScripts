@@ -30,7 +30,7 @@ WeldTORSO.Part0 = game.Workspace.efsane14010["Torso"]
 WeldTORSO.Part1 = Copy["Torso"]
 --------------CLONE-CHARACTER-PROPERTIES-----------
 Copy.Name = "efsane"
-Copy.Parent = game.Workspace.efsane14010.HumanoidRootPart
+Copy.Parent = game.Workspace.efsane14010.Torso
 Copy.HumanoidRootPart.CanCollide = false
 Copy.Torso.CanCollide = false
 
@@ -40,7 +40,7 @@ Copy["Left Leg"].CanCollide = false
 Copy["Right Arm"].CanCollide = false
 Copy["Left Arm"].CanCollide = false
 Copy.Torso.CanCollide = false
-Copy.HumanoidRootPart.CanCollide = false
+Copy.HumanoidRootPart:Destroy()
 Copy.Head.CanCollide = false
 --Massless
 Copy["Right Leg"].Massless = true
