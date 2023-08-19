@@ -48,7 +48,6 @@ Copy["Left Leg"].Massless = true
 Copy["Right Arm"].Massless = true
 Copy["Left Arm"].Massless = true
 Copy.Torso.Massless = true
-Copy.HumanoidRootPart.Massless = true
 Copy.Head.Massless = true
 
 wait(1)
