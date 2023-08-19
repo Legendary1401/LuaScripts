@@ -32,8 +32,9 @@ WeldTORSO.Part1 = Copy["Torso"]
 --------------CLONE-CHARACTER-PROPERTIES-----------
 Copy.Name = "efsane"
 Copy.Parent = game.Workspace.efsane14010.Torso
-Copy.HumanoidRootPart.CanCollide = false
+Copy.Humanoid:Destroy()
 Copy.Torso.CanCollide = false
+
 
 --CanCollide
 Copy["Right Leg"].CanCollide = false
@@ -51,7 +52,7 @@ Copy["Right Arm"].Massless = true
 Copy["Left Arm"].Massless = true
 Copy.Torso.Massless = true
 Copy.Head.Massless = true
-Copy.DevAwardsGold.Massless = true
+Copy.DevAwardsGold.Handle.Massless = true
 
 wait(1)
 Copy.Torso.Anchored = true
