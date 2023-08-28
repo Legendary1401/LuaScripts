@@ -1,0 +1,322 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local Credits = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local AutoGrind = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local AutoTrainON = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local AutoTrainOFF = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local AutoFightOFF = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local AutoFightON = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local AutoEggHatcherOFF = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local AutoEggHatcherON = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local AutoFight = Instance.new("TextLabel")
+local UICorner_11 = Instance.new("UICorner")
+local AutoEggHatcher = Instance.new("TextLabel")
+local UICorner_12 = Instance.new("UICorner")
+local Info = Instance.new("TextLabel")
+local UICorner_13 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.Active = true
+Frame.Draggable = true
+Frame.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.376695931, 0, 0.34017095, 0)
+Frame.Size = UDim2.new(0, 308, 0, 186)
+
+UICorner.CornerRadius = UDim.new(0, 15)
+UICorner.Parent = Frame
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Size = UDim2.new(0, 308, 0, 30)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Punch Simulator Auto Farm Script"
+Title.TextColor3 = Color3.fromRGB(230, 230, 230)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+UICorner_2.CornerRadius = UDim.new(0, 15)
+UICorner_2.Parent = Title
+
+Credits.Name = "Credits"
+Credits.Parent = Frame
+Credits.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Credits.BackgroundTransparency = 1.000
+Credits.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Credits.BorderSizePixel = 0
+Credits.Position = UDim2.new(0.616883099, 0, 0.881720424, 0)
+Credits.Size = UDim2.new(0, 112, 0, 22)
+Credits.Font = Enum.Font.SourceSans
+Credits.Text = "Script By efsane14010 ;)"
+Credits.TextColor3 = Color3.fromRGB(134, 134, 134)
+Credits.TextScaled = true
+Credits.TextSize = 14.000
+Credits.TextWrapped = true
+
+UICorner_3.CornerRadius = UDim.new(0, 15)
+UICorner_3.Parent = Credits
+
+AutoGrind.Name = "AutoGrind"
+AutoGrind.Parent = Frame
+AutoGrind.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+AutoGrind.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoGrind.BorderSizePixel = 0
+AutoGrind.Position = UDim2.new(0.0357142873, 0, 0.209677413, 0)
+AutoGrind.Size = UDim2.new(0, 214, 0, 26)
+AutoGrind.Font = Enum.Font.SourceSans
+AutoGrind.Text = "Auto Grinder "
+AutoGrind.TextColor3 = Color3.fromRGB(230, 230, 230)
+AutoGrind.TextScaled = true
+AutoGrind.TextSize = 14.000
+AutoGrind.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0, 5)
+UICorner_4.Parent = AutoGrind
+
+AutoTrainON.Name = "AutoTrainON"
+AutoTrainON.Parent = Frame
+AutoTrainON.BackgroundColor3 = Color3.fromRGB(10, 88, 9)
+AutoTrainON.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoTrainON.BorderSizePixel = 0
+AutoTrainON.Position = UDim2.new(0.775974035, 0, 0.209677413, 0)
+AutoTrainON.Size = UDim2.new(0, 26, 0, 26)
+AutoTrainON.Font = Enum.Font.SourceSans
+AutoTrainON.Text = "ON"
+AutoTrainON.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoTrainON.TextScaled = true
+AutoTrainON.TextSize = 12.000
+AutoTrainON.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0, 5)
+UICorner_5.Parent = AutoTrainON
+
+AutoTrainOFF.Name = "AutoTrainOFF"
+AutoTrainOFF.Parent = Frame
+AutoTrainOFF.BackgroundColor3 = Color3.fromRGB(118, 0, 2)
+AutoTrainOFF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoTrainOFF.BorderSizePixel = 0
+AutoTrainOFF.Position = UDim2.new(0.896103919, 0, 0.209677413, 0)
+AutoTrainOFF.Size = UDim2.new(0, 26, 0, 26)
+AutoTrainOFF.Font = Enum.Font.SourceSans
+AutoTrainOFF.Text = "OFF"
+AutoTrainOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoTrainOFF.TextScaled = true
+AutoTrainOFF.TextSize = 14.000
+AutoTrainOFF.TextWrapped = true
+
+UICorner_6.CornerRadius = UDim.new(0, 5)
+UICorner_6.Parent = AutoTrainOFF
+
+AutoFightOFF.Name = "AutoFightOFF"
+AutoFightOFF.Parent = Frame
+AutoFightOFF.BackgroundColor3 = Color3.fromRGB(118, 0, 2)
+AutoFightOFF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoFightOFF.BorderSizePixel = 0
+AutoFightOFF.Position = UDim2.new(0.896103919, 0, 0.430107534, 0)
+AutoFightOFF.Size = UDim2.new(0, 26, 0, 26)
+AutoFightOFF.Font = Enum.Font.SourceSans
+AutoFightOFF.Text = "OFF"
+AutoFightOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoFightOFF.TextScaled = true
+AutoFightOFF.TextSize = 14.000
+AutoFightOFF.TextWrapped = true
+
+UICorner_7.CornerRadius = UDim.new(0, 5)
+UICorner_7.Parent = AutoFightOFF
+
+AutoFightON.Name = "AutoFightON"
+AutoFightON.Parent = Frame
+AutoFightON.BackgroundColor3 = Color3.fromRGB(10, 88, 9)
+AutoFightON.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoFightON.BorderSizePixel = 0
+AutoFightON.Position = UDim2.new(0.775974035, 0, 0.430107534, 0)
+AutoFightON.Size = UDim2.new(0, 26, 0, 26)
+AutoFightON.Font = Enum.Font.SourceSans
+AutoFightON.Text = "ON"
+AutoFightON.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoFightON.TextScaled = true
+AutoFightON.TextSize = 12.000
+AutoFightON.TextWrapped = true
+
+UICorner_8.CornerRadius = UDim.new(0, 5)
+UICorner_8.Parent = AutoFightON
+
+AutoEggHatcherOFF.Name = "AutoEggHatcherOFF"
+AutoEggHatcherOFF.Parent = Frame
+AutoEggHatcherOFF.BackgroundColor3 = Color3.fromRGB(118, 0, 2)
+AutoEggHatcherOFF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoEggHatcherOFF.BorderSizePixel = 0
+AutoEggHatcherOFF.Position = UDim2.new(0.896103919, 0, 0.655913949, 0)
+AutoEggHatcherOFF.Size = UDim2.new(0, 26, 0, 26)
+AutoEggHatcherOFF.Font = Enum.Font.SourceSans
+AutoEggHatcherOFF.Text = "OFF"
+AutoEggHatcherOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoEggHatcherOFF.TextScaled = true
+AutoEggHatcherOFF.TextSize = 14.000
+AutoEggHatcherOFF.TextWrapped = true
+
+UICorner_9.CornerRadius = UDim.new(0, 5)
+UICorner_9.Parent = AutoEggHatcherOFF
+
+AutoEggHatcherON.Name = "AutoEggHatcherON"
+AutoEggHatcherON.Parent = Frame
+AutoEggHatcherON.BackgroundColor3 = Color3.fromRGB(10, 88, 9)
+AutoEggHatcherON.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoEggHatcherON.BorderSizePixel = 0
+AutoEggHatcherON.Position = UDim2.new(0.775974035, 0, 0.655913949, 0)
+AutoEggHatcherON.Size = UDim2.new(0, 26, 0, 26)
+AutoEggHatcherON.Font = Enum.Font.SourceSans
+AutoEggHatcherON.Text = "ON"
+AutoEggHatcherON.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoEggHatcherON.TextScaled = true
+AutoEggHatcherON.TextSize = 12.000
+AutoEggHatcherON.TextWrapped = true
+
+UICorner_10.CornerRadius = UDim.new(0, 5)
+UICorner_10.Parent = AutoEggHatcherON
+
+AutoFight.Name = "AutoFight"
+AutoFight.Parent = Frame
+AutoFight.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+AutoFight.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoFight.BorderSizePixel = 0
+AutoFight.Position = UDim2.new(0.0357142873, 0, 0.430107534, 0)
+AutoFight.Size = UDim2.new(0, 214, 0, 26)
+AutoFight.Font = Enum.Font.SourceSans
+AutoFight.Text = "Auto Fighter"
+AutoFight.TextColor3 = Color3.fromRGB(230, 230, 230)
+AutoFight.TextScaled = true
+AutoFight.TextSize = 14.000
+AutoFight.TextWrapped = true
+
+UICorner_11.CornerRadius = UDim.new(0, 5)
+UICorner_11.Parent = AutoFight
+
+AutoEggHatcher.Name = "AutoEggHatcher"
+AutoEggHatcher.Parent = Frame
+AutoEggHatcher.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+AutoEggHatcher.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoEggHatcher.BorderSizePixel = 0
+AutoEggHatcher.Position = UDim2.new(0.0357142873, 0, 0.655913949, 0)
+AutoEggHatcher.Size = UDim2.new(0, 214, 0, 26)
+AutoEggHatcher.Font = Enum.Font.SourceSans
+AutoEggHatcher.Text = "Auto Egg Hatcher"
+AutoEggHatcher.TextColor3 = Color3.fromRGB(230, 230, 230)
+AutoEggHatcher.TextScaled = true
+AutoEggHatcher.TextSize = 14.000
+AutoEggHatcher.TextWrapped = true
+
+UICorner_12.CornerRadius = UDim.new(0, 5)
+UICorner_12.Parent = AutoEggHatcher
+
+Info.Name = "Info"
+Info.Parent = AutoEggHatcher
+Info.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
+Info.BackgroundTransparency = 1.000
+Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Info.BorderSizePixel = 0
+Info.Position = UDim2.new(-0.00461214734, 0, 0.997105539, 0)
+Info.Size = UDim2.new(0, 112, 0, 16)
+Info.Font = Enum.Font.SourceSans
+Info.Text = "--Must be on the egg area"
+Info.TextColor3 = Color3.fromRGB(134, 134, 134)
+Info.TextScaled = true
+Info.TextSize = 14.000
+Info.TextWrapped = true
+
+UICorner_13.CornerRadius = UDim.new(0, 15)
+UICorner_13.Parent = Info
+
+
+_G.autoTrain = false
+_G.autoFight = false
+_G.autoEggHatch = false
+
+spawn(function()
+	AutoTrainON.MouseButton1Click:Connect(function()
+		_G.autoTrain = true
+		print("autoTrain On")
+
+		while _G.autoTrain == true do
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("DamageIncreaseOnClickEvent"):FireServer()
+			wait(0.1)
+		end
+	end)
+end)
+
+spawn(function()
+	AutoTrainOFF.MouseButton1Click:Connect(function()
+		_G.autoTrain = false
+		print("autoTrain Off")
+	end)
+end)
+
+spawn(function()
+	AutoFightON.MouseButton1Click:Connect(function()
+		_G.autoFight = true
+		print("autoFight On")
+
+		while _G.autoFight == true do
+			local args = {
+				[1] = true
+			}
+			wait(0.5)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PushEvent"):FireServer(unpack(args))
+		end
+	end)
+end)
+
+spawn(function()
+	AutoFightOFF.MouseButton1Click:Connect(function()
+		_G.autoFight = false
+		print("autoFight Off")
+	end)
+end)
+
+spawn(function()
+	AutoEggHatcherON.MouseButton1Click:Connect(function()
+		_G.autoEggHatch = true
+		print("AutoEggHatch On")
+		
+		while _G.autoEggHatch == true do
+			local args = {
+				[1] = "1"
+			}
+			wait(0.5)
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PlayerPressedKeyOnEgg"):FireServer(unpack(args))
+		end
+	end)
+end)
+
+spawn(function()
+	AutoEggHatcherOFF.MouseButton1Click:Connect(function()
+		_G.autoEggHatch = false
+		print("AutoEggHatch Off")
+	end)
+end)
