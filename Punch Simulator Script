@@ -30,6 +30,14 @@ local AutoEggHatcher = Instance.new("TextLabel")
 local UICorner_12 = Instance.new("UICorner")
 local Info = Instance.new("TextLabel")
 local UICorner_13 = Instance.new("UICorner")
+local AutoMiner = Instance.new("TextLabel")
+local UICorner_14 = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
+local UICorner_15 = Instance.new("UICorner")
+local AutoMinerON = Instance.new("TextButton")
+local UICorner_16 = Instance.new("UICorner")
+local AutoMinerOFF = Instance.new("TextButton")
+local UICorner_17 = Instance.new("UICorner")
 
 --Properties:
 
@@ -38,7 +46,6 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = ScreenGui
 Frame.Active = true
-Frame.Draggable = true
 Frame.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 0
@@ -138,7 +145,7 @@ AutoFightOFF.Parent = Frame
 AutoFightOFF.BackgroundColor3 = Color3.fromRGB(118, 0, 2)
 AutoFightOFF.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoFightOFF.BorderSizePixel = 0
-AutoFightOFF.Position = UDim2.new(0.896103919, 0, 0.430107534, 0)
+AutoFightOFF.Position = UDim2.new(0.896103919, 0, 0.392473131, 0)
 AutoFightOFF.Size = UDim2.new(0, 26, 0, 26)
 AutoFightOFF.Font = Enum.Font.SourceSans
 AutoFightOFF.Text = "OFF"
@@ -155,7 +162,7 @@ AutoFightON.Parent = Frame
 AutoFightON.BackgroundColor3 = Color3.fromRGB(10, 88, 9)
 AutoFightON.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoFightON.BorderSizePixel = 0
-AutoFightON.Position = UDim2.new(0.775974035, 0, 0.430107534, 0)
+AutoFightON.Position = UDim2.new(0.775974035, 0, 0.392473131, 0)
 AutoFightON.Size = UDim2.new(0, 26, 0, 26)
 AutoFightON.Font = Enum.Font.SourceSans
 AutoFightON.Text = "ON"
@@ -172,7 +179,7 @@ AutoEggHatcherOFF.Parent = Frame
 AutoEggHatcherOFF.BackgroundColor3 = Color3.fromRGB(118, 0, 2)
 AutoEggHatcherOFF.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoEggHatcherOFF.BorderSizePixel = 0
-AutoEggHatcherOFF.Position = UDim2.new(0.896103919, 0, 0.655913949, 0)
+AutoEggHatcherOFF.Position = UDim2.new(0.896103919, 0, 0.569892466, 0)
 AutoEggHatcherOFF.Size = UDim2.new(0, 26, 0, 26)
 AutoEggHatcherOFF.Font = Enum.Font.SourceSans
 AutoEggHatcherOFF.Text = "OFF"
@@ -189,7 +196,7 @@ AutoEggHatcherON.Parent = Frame
 AutoEggHatcherON.BackgroundColor3 = Color3.fromRGB(10, 88, 9)
 AutoEggHatcherON.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoEggHatcherON.BorderSizePixel = 0
-AutoEggHatcherON.Position = UDim2.new(0.775974035, 0, 0.655913949, 0)
+AutoEggHatcherON.Position = UDim2.new(0.775974035, 0, 0.569892466, 0)
 AutoEggHatcherON.Size = UDim2.new(0, 26, 0, 26)
 AutoEggHatcherON.Font = Enum.Font.SourceSans
 AutoEggHatcherON.Text = "ON"
@@ -206,7 +213,7 @@ AutoFight.Parent = Frame
 AutoFight.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 AutoFight.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoFight.BorderSizePixel = 0
-AutoFight.Position = UDim2.new(0.0357142873, 0, 0.430107534, 0)
+AutoFight.Position = UDim2.new(0.0357142873, 0, 0.392473131, 0)
 AutoFight.Size = UDim2.new(0, 214, 0, 26)
 AutoFight.Font = Enum.Font.SourceSans
 AutoFight.Text = "Auto Fighter"
@@ -223,7 +230,7 @@ AutoEggHatcher.Parent = Frame
 AutoEggHatcher.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
 AutoEggHatcher.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoEggHatcher.BorderSizePixel = 0
-AutoEggHatcher.Position = UDim2.new(0.0357142873, 0, 0.655913949, 0)
+AutoEggHatcher.Position = UDim2.new(0.0357142873, 0, 0.569892466, 0)
 AutoEggHatcher.Size = UDim2.new(0, 214, 0, 26)
 AutoEggHatcher.Font = Enum.Font.SourceSans
 AutoEggHatcher.Text = "Auto Egg Hatcher"
@@ -241,7 +248,7 @@ Info.BackgroundColor3 = Color3.fromRGB(47, 47, 47)
 Info.BackgroundTransparency = 1.000
 Info.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Info.BorderSizePixel = 0
-Info.Position = UDim2.new(-0.00461214734, 0, 0.997105539, 0)
+Info.Position = UDim2.new(0.23370561, 0, -0.272125244, 0)
 Info.Size = UDim2.new(0, 112, 0, 16)
 Info.Font = Enum.Font.SourceSans
 Info.Text = "--Must be on the egg area"
@@ -253,10 +260,81 @@ Info.TextWrapped = true
 UICorner_13.CornerRadius = UDim.new(0, 15)
 UICorner_13.Parent = Info
 
+AutoMiner.Name = "AutoMiner"
+AutoMiner.Parent = Frame
+AutoMiner.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
+AutoMiner.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoMiner.BorderSizePixel = 0
+AutoMiner.Position = UDim2.new(0.0324675329, 0, 0.741935492, 0)
+AutoMiner.Size = UDim2.new(0, 113, 0, 26)
+AutoMiner.Font = Enum.Font.SourceSans
+AutoMiner.Text = "AutoMiner"
+AutoMiner.TextColor3 = Color3.fromRGB(230, 230, 230)
+AutoMiner.TextScaled = true
+AutoMiner.TextSize = 14.000
+AutoMiner.TextWrapped = true
+
+UICorner_14.CornerRadius = UDim.new(0, 5)
+UICorner_14.Parent = AutoMiner
+
+TextBox.Parent = AutoMiner
+TextBox.BackgroundColor3 = Color3.fromRGB(74, 74, 74)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(1.06194687, 0, 0, 0)
+TextBox.Size = UDim2.new(0, 95, 0, 26)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "Amount"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+UICorner_15.CornerRadius = UDim.new(0, 5)
+UICorner_15.Parent = TextBox
+
+AutoMinerON.Name = "AutoMinerON"
+AutoMinerON.Parent = Frame
+AutoMinerON.BackgroundColor3 = Color3.fromRGB(10, 88, 9)
+AutoMinerON.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoMinerON.BorderSizePixel = 0
+AutoMinerON.Position = UDim2.new(0.775974035, 0, 0.741935492, 0)
+AutoMinerON.Size = UDim2.new(0, 26, 0, 26)
+AutoMinerON.Font = Enum.Font.SourceSans
+AutoMinerON.Text = "ON"
+AutoMinerON.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoMinerON.TextScaled = true
+AutoMinerON.TextSize = 12.000
+AutoMinerON.TextWrapped = true
+
+UICorner_16.CornerRadius = UDim.new(0, 5)
+UICorner_16.Parent = AutoMinerON
+
+AutoMinerOFF.Name = "AutoMinerOFF"
+AutoMinerOFF.Parent = Frame
+AutoMinerOFF.BackgroundColor3 = Color3.fromRGB(118, 0, 2)
+AutoMinerOFF.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoMinerOFF.BorderSizePixel = 0
+AutoMinerOFF.Position = UDim2.new(0.896103919, 0, 0.741935492, 0)
+AutoMinerOFF.Size = UDim2.new(0, 26, 0, 26)
+AutoMinerOFF.Font = Enum.Font.SourceSans
+AutoMinerOFF.Text = "OFF"
+AutoMinerOFF.TextColor3 = Color3.fromRGB(0, 0, 0)
+AutoMinerOFF.TextScaled = true
+AutoMinerOFF.TextSize = 14.000
+AutoMinerOFF.TextWrapped = true
+
+UICorner_17.CornerRadius = UDim.new(0, 5)
+UICorner_17.Parent = AutoMinerOFF
+
+
+
 
 _G.autoTrain = false
 _G.autoFight = false
 _G.autoEggHatch = false
+_G.autoMiner = false
+
 
 spawn(function()
 	AutoTrainON.MouseButton1Click:Connect(function()
@@ -303,7 +381,7 @@ spawn(function()
 	AutoEggHatcherON.MouseButton1Click:Connect(function()
 		_G.autoEggHatch = true
 		print("AutoEggHatch On")
-		
+
 		while _G.autoEggHatch == true do
 			local args = {
 				[1] = "1"
@@ -318,5 +396,35 @@ spawn(function()
 	AutoEggHatcherOFF.MouseButton1Click:Connect(function()
 		_G.autoEggHatch = false
 		print("AutoEggHatch Off")
+	end)
+end)
+
+spawn(function()
+	AutoMinerON.MouseButton1Click:Connect(function()
+		_G.autoMiner = true
+		print("AutoMiner On")
+
+		while _G.autoMiner == true do
+			local arg = {
+				[1] = "Info"
+			}
+
+			game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("MinerCurrency"):InvokeServer(unpack(arg))
+
+			local args = {
+				[1] = "Coins",
+				[2] = TextBox.Text
+			}
+			wait(0.5)
+			game:GetService("ReplicatedStorage"):WaitForChild("CollectedCurrency"):FireServer(unpack(args))
+
+		end
+	end)
+end)
+
+spawn(function()
+	AutoMinerOFF.MouseButton1Click:Connect(function()
+		_G.autoMiner = false
+		print("AutoMiner Off")
 	end)
 end)
