@@ -1,0 +1,24 @@
+count = "1"
+
+local finish = Instance.new("Part")
+finish.Anchored = true	
+finish.CanCollide = true 
+finish.Position = Vector3.new(-4, 22, -1013)
+finish.Size = Vector3.new(2,2,2)
+finish.Parent = game.Workspace
+
+while true do
+	task.wait(4)
+	firetouchinterest(game.Players.LocalPlayer.Character.Head, game.workspace.Bridge:FindFirstChild(count)["1"], 0)
+	wait(0.1)
+	firetouchinterest(game.Players.LocalPlayer.Character.Head, game.workspace.Bridge:FindFirstChild(count)["1"], 1)
+	task.wait(4)
+	firetouchinterest(game.Players.LocalPlayer.Character.Head, game.workspace.Bridge:FindFirstChild(count)["2"], 0)
+	wait(0.1)
+	firetouchinterest(game.Players.LocalPlayer.Character.Head, game.workspace.Bridge:FindFirstChild(count)["2"], 1)
+	count += 1
+	if count == 101 then
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Position = finish.Position
+		break
+	end
+end
