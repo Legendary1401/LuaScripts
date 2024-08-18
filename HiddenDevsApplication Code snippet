@@ -1,7 +1,8 @@
--------Sercives------------------------------
+-------Sercives------------------------------   I hope this is self explanatory enough
 local Player = game:GetService('Players').LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 
+-------CharacterParts------------------------
 local Character = Player.Character
 local HumanoidRootPart = Character.HumanoidRootPart
 local Humanoid = Character.Humanoid
@@ -56,14 +57,16 @@ local JumpAnimation = Humanoid:LoadAnimation(animFolder.Jump)
 local BracingRollAnimation = Humanoid:LoadAnimation(animFolder.BracingRoll)
 
 -------Tweens------------------------------
-local runningFOVincrease = TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false)
+local runningFOVincrease = TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false) -- these are running fovs
 local runningFOVdecrease = TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false)
 
+-----Disables other functions with isAlive = false
 Humanoid.Died:Connect(function()
 	isAlive = false
-	PlayerDied:FireServer()
+	PlayerDied:FireServer() --this gives effects on the serverside
 end)
 
+-----Resets-Characters-Instances--------------
 Player.CharacterAdded:Connect(function()
 	Character = Player.Character
 	HumanoidRootPart = Character.HumanoidRootPart
@@ -78,18 +81,17 @@ Player.CharacterAdded:Connect(function()
 	JumpAnimation = Humanoid:LoadAnimation(animFolder.Jump)
 	BracingRollAnimation = Humanoid:LoadAnimation(animFolder.BracingRoll)
 
-
 	PlayerGui = Player.PlayerGui
 	DashBar = PlayerGui.DashBar
 	RayModule = require(script.RayModule)
 	Settings = script.Settings
 
-	Camera.FieldOfView = 100
+	Camera.FieldOfView = 100 
 	Player = game:GetService('Players').LocalPlayer
 	Character = Player.Character
 	isAlive = true
 
-	Humanoid.StateChanged:Connect(function(oldState, newState)
+	Humanoid.StateChanged:Connect(function(oldState, newState) -- Reseted Humanoid states
 		if newState == Enum.HumanoidStateType.Climbing then
 			if isRunning == true then
 				RunAnimation:Stop()
@@ -99,7 +101,7 @@ Player.CharacterAdded:Connect(function()
 				RunAnimation:Play()
 			end
 		end
-		if newState == Enum.HumanoidStateType.Freefall then
+		if newState == Enum.HumanoidStateType.Freefall then -- Free fall as I said idk why u declined the last application it was enough to show how the code works
 			isLanded = false
 			if isRunning == true then
 				RunAnimation:Stop()
@@ -108,13 +110,13 @@ Player.CharacterAdded:Connect(function()
 			RunAnimation:Play()
 		end
 
-		if newState == Enum.HumanoidStateType.Jumping then
+		if newState == Enum.HumanoidStateType.Jumping then -- Plays ability jump animation
 			if isRunning and isDashing == false then
 				JumpAnimation:Play()
 			end
 		end
 
-		if newState == Enum.HumanoidStateType.Landed then
+		if newState == Enum.HumanoidStateType.Landed then -- Disables run animation depending on the custom ability
 			isLanded = true
 			if isBracing and isRunning then
 				RunAnimation:Stop()
@@ -124,9 +126,9 @@ Player.CharacterAdded:Connect(function()
 end)
 
 RunService.RenderStepped:Connect(function(deltaTime)
-
 	if isAlive == true then
-		if Character:WaitForChild("Head").LocalTransparencyModifier == 1 then
+			----Copy head movements depending on the animation 
+		if Character:WaitForChild("Head").LocalTransparencyModifier == 1 then  -- this is for checking first person
 			if isVaulting then
 				local headRotation = Character.Head.CFrame - Character.Head.CFrame.LookVector
 
@@ -155,7 +157,7 @@ RunService.RenderStepped:Connect(function(deltaTime)
 			end
 		end
 
-		if isRunning == true and Humanoid.MoveDirection.Magnitude <= 0 then
+		if isRunning == true and Humanoid.MoveDirection.Magnitude <= 0 then -- if the player is running it plays fov animation
 			local TweenFOV = TweenService:Create(Camera, runningFOVincrease, {FieldOfView = 100})
 			TweenFOV:Play()
 			Humanoid.WalkSpeed = 16
@@ -173,11 +175,11 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 
 
 		if isLanded == true and isVaulting == false and isDashing == false then -- VAULTING
-			local EmptyPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 3 + HumanoidRootPart.CFrame.YVector * 3, Player.Character)
+			local EmptyPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 3 + HumanoidRootPart.CFrame.YVector * 3, Player.Character)  -- Ray module simplified 
 			local VaultPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 7, Player.Character)
 			if VaultPart and not EmptyPart then if VaultPart.CanCollide == false then return end end
 			if VaultPart and not EmptyPart and isRunning and isVaulting == false then
-				if Humanoid.FloorMaterial ~= Enum.Material.Air then
+				if Humanoid.FloorMaterial ~= Enum.Material.Air then -- puts in velocity and make vaulting
 					VaultAnimation:Play()
 					isVaulting = true
 					local Vel = Instance.new("BodyVelocity")
@@ -193,12 +195,12 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 		end
 
 		if isLanded == false and isVaulting == false and isAirVaulting == false then --LEDGE GRAB VAULT
-			local EmptyPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 3 + HumanoidRootPart.CFrame.YVector * 3, Player.Character)
+			local EmptyPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 3 + HumanoidRootPart.CFrame.YVector * 3, Player.Character) -- Ray module
 			local VaultPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 7 + HumanoidRootPart.CFrame.YVector * -2, Player.Character)
 
 			if VaultPart and not EmptyPart then if VaultPart.CanCollide == false then return end end
 			if VaultPart and not EmptyPart and isRunning and isAirVaulting == false then
-				if Humanoid.FloorMaterial == Enum.Material.Air then
+				if Humanoid.FloorMaterial == Enum.Material.Air then -- Ledge grabbing ability 
 					print("workign")
 					LongJumpAnimation:Stop()
 					AirVaultAnimation:Play()
@@ -216,9 +218,9 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 		end
 
 		if isDashing == true and isVaulting == false then -- LONG JUMPİNG
-			local EmptyPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 3 + HumanoidRootPart.CFrame.YVector * -5, Player.Character)
+			local EmptyPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * 3 + HumanoidRootPart.CFrame.YVector * -5, Player.Character) -- ray module
 			local BottomPart,position1 = RayModule.Ray(HumanoidRootPart.Position,HumanoidRootPart.CFrame.LookVector * -3 + HumanoidRootPart.CFrame.YVector * -5, Player.Character)
-			if not EmptyPart and BottomPart then
+			if not EmptyPart and BottomPart then -- long jump ability checking if the player is in the edge of the part
 				isLongJumping = true
 				LongJumpAnimation:Play()
 				Torso.Velocity = Humanoid.MoveDirection * Settings.LongJumpDistance.Value + Vector3.new(0,Settings.LongJumpHeight.Value,0)
@@ -227,24 +229,24 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 			end
 
 		elseif isDashing == true and isLanded == false and isVaulting == false then -- WALL JUMPİNG
-			if Humanoid.MoveDirection.Magnitude ~= 0 then
-				local part,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * -3, Player.Character)
-				if part then
+			if Humanoid.MoveDirection.Magnitude ~= 0 then 
+				local part,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * -3, Player.Character) -- ray module
+				if part then -- wall jumping
 					print("Wall Jumping")
 					Torso.Velocity =  Humanoid.MoveDirection * Settings.LongJumpDistance.Value + Vector3.new(0,Settings.LongJumpHeight.Value,0)
 					LongJumpAnimation:Play()
 				end
 			else
-				local part,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * -3, Player.Character)
+				local part,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.LookVector * -3, Player.Character) -- ray module
 				if part then
-					print("Wall Climbing")
+					print("Wall Climbing") --wall jumping reversed
 					Torso.Velocity = Torso.CFrame.LookVector * 0 + Vector3.new(0,Settings.LongJumpHeight.Value,0)
 					LongJumpAnimation:Play()
 				end
 			end
 		end
 
-		--[[if isLanded == false and canWallRun == true then
+		if isLanded == false and canWallRun == true then -- Wall run
 			-- Detect walls on the left and right
 			local leftVector = HumanoidRootPart.CFrame.RightVector * -3
 			local rightVector = HumanoidRootPart.CFrame.RightVector * 3
@@ -252,14 +254,14 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 			local leftPart, leftPosition = RayModule.Ray(HumanoidRootPart.Position, leftVector, Player.Character)
 			local rightPart, rightPosition = RayModule.Ray(HumanoidRootPart.Position, rightVector, Player.Character)
 
-			if not leftPart and not rightPart then return end
+			if not leftPart and not rightPart then return end -- if there isnt wals then return nil
 
 			isWallRunning = true
 			local moveDirection = leftPart and leftVector or rightVector
 
 			-- Maintain the wall run for the duration
 			local runTime = 0
-			while runTime < WallRunDuration.Value and isWallRunning do
+			while runTime < WallRunDuration.Value and isWallRunning do -- FUnctiın to make it work
 				local deltaTime = RunService.Heartbeat:Wait()
 				runTime = runTime + deltaTime
 				print("yes")
@@ -272,14 +274,14 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 
 
 			isWallRunning = false
-		end]]
+		end
 
 	end
 
-	if input.UserInputType == Enum.UserInputType.MouseButton3 then
+	if input.UserInputType == Enum.UserInputType.MouseButton3 then -- Custom dash ability 
 		if isDashing == false then
 			isDashing = true
-			local TweenUi1 = TweenService:Create(DashBar.Bar.Frame,TweenInfo.new(1.5),{Size = UDim2.new(0,0,0.9,0)})
+			local TweenUi1 = TweenService:Create(DashBar.Bar.Frame,TweenInfo.new(1.5),{Size = UDim2.new(0,0,0.9,0)}) -- tweens the dash Ui
 			local TweenUi2 = TweenService:Create(DashBar.Bar.Frame,TweenInfo.new(1),{Size = UDim2.new(0,0,0.01,0)})
 			DashBar.Bar.Frame.Parent.Visible = true
 			TweenUi1:Play()
@@ -290,7 +292,7 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 		end
 	end
 
-	if input.KeyCode == Enum.KeyCode.LeftShift then
+	if input.KeyCode == Enum.KeyCode.LeftShift then -- Running
 		if isAlive == true and Humanoid.MoveDirection.Magnitude ~= 0 then
 			local TweenFOV = TweenService:Create(Camera, runningFOVincrease, {FieldOfView = 110})
 			TweenFOV:Play()
@@ -301,10 +303,10 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 		end
 	end
 
-	if input.KeyCode == Enum.KeyCode.C then
-		local DownPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.YVector * -10, Player.Character)
+	if input.KeyCode == Enum.KeyCode.C then -- Bracing 
+		local DownPart,position = RayModule.Ray(HumanoidRootPart.Position, HumanoidRootPart.CFrame.YVector * -10, Player.Character)-- ray module
 		--print(DownPart)
-		if isAlive and isLanded == false and isVaulting == false and isRolling == false and isBracing == false and DownPart then
+		if isAlive and isLanded == false and isVaulting == false and isRolling == false and isBracing == false and DownPart then --Bracing part checking
 			isBracing = true
 			--print("bracing")
 			local rollSpeed = 30
@@ -319,12 +321,13 @@ UserInputService.InputBegan:Connect(function(input, _gameProcessed)
 			bodyVelocity:Destroy()
 			isBracing = false
 		elseif isAlive and isLanded == true and isVaulting == false and isRolling == false and isBracing == false and DownPart then
+			return nil 
 		end
 	end
 end)
 
 UserInputService.InputEnded:Connect(function(input, _gameProcessed)
-	if input.KeyCode == Enum.KeyCode.LeftShift then
+	if input.KeyCode == Enum.KeyCode.LeftShift then  -- stops running
 		if isAlive == true then
 			local TweenFOV = TweenService:Create(Camera, runningFOVincrease, {FieldOfView = 100})
 			TweenFOV:Play()
@@ -337,17 +340,17 @@ UserInputService.InputEnded:Connect(function(input, _gameProcessed)
 end)
 
 last = tick()
-local function RoundUp(num)
+local function RoundUp(num) -- round number function
 	return math.floor(num + 0.5)
 end
 
-RunService.RenderStepped:Connect(function()
+RunService.RenderStepped:Connect(function() -- falldamage
 	if isAlive == true then
 		local t = tick()
 		local dt = t - last
 		last = t
 
-		if Character:WaitForChild("Head").Velocity.Y > -1 and not isLanded then
+		if Character:WaitForChild("Head").Velocity.Y > -1 and not isLanded then  -- checks players head velocity and if its landed or not
 			isLanded = true
 			FallingPosition1 = Character.Head.Position.Y
 			-- fallAnimTrack:Play() -
@@ -356,7 +359,7 @@ RunService.RenderStepped:Connect(function()
 			FallingPosition2 = Character.Head.Position.Y
 			local difference = (FallingPosition1 - BracingPosition) - FallingPosition2
 			if difference < 5 then
-				if isWallRunning ~= true then
+				if isWallRunning ~= true then -- yes or no depending on the Falling position
 					canWallRun = true
 				else
 					canWallRun = false
@@ -365,7 +368,7 @@ RunService.RenderStepped:Connect(function()
 				canWallRun = false
 			end
 
-			if difference > fallDamageThreshold then
+			if difference > fallDamageThreshold then -- give damage or cancel it with bracing
 				if isBracing == true then
 					local difference = (FallingPosition1 - BracingPosition) - FallingPosition2
 					if difference <= 20 then
